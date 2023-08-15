@@ -14,6 +14,7 @@
 		C94784D62A86EA3F003B773A /* OddOneOutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94784D52A86EA3F003B773A /* OddOneOutTests.swift */; };
 		C94784E02A86EA3F003B773A /* OddOneOutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94784DF2A86EA3F003B773A /* OddOneOutUITests.swift */; };
 		C94784E22A86EA3F003B773A /* OddOneOutUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94784E12A86EA3F003B773A /* OddOneOutUITestsLaunchTests.swift */; };
+		C9B4A20F2A8B16F900D0565D /* GameOverScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B4A20E2A8B16F900D0565D /* GameOverScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		C94784DB2A86EA3F003B773A /* OddOneOutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OddOneOutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C94784DF2A86EA3F003B773A /* OddOneOutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OddOneOutUITests.swift; sourceTree = "<group>"; };
 		C94784E12A86EA3F003B773A /* OddOneOutUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OddOneOutUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C9B4A20E2A8B16F900D0565D /* GameOverScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 			children = (
 				C94784C32A86EA3E003B773A /* OddOneOutApp.swift */,
 				C94784C52A86EA3E003B773A /* ContentView.swift */,
+				C9B4A20E2A8B16F900D0565D /* GameOverScreen.swift */,
 				C94784C72A86EA3F003B773A /* Assets.xcassets */,
 				C94784CC2A86EA3F003B773A /* OddOneOut.entitlements */,
 				C94784C92A86EA3F003B773A /* Preview Content */,
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9B4A20F2A8B16F900D0565D /* GameOverScreen.swift in Sources */,
 				C94784C62A86EA3E003B773A /* ContentView.swift in Sources */,
 				C94784C42A86EA3E003B773A /* OddOneOutApp.swift in Sources */,
 			);

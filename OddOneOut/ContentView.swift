@@ -33,7 +33,7 @@ struct ContentView: View {
                 itemCount += 1
             }
             if itemCount == images.count {
-                itemCount += 1
+                itemCount = 1
             }
         }
         layout += Array(repeating: "empty", count: 100 - layout.count)
@@ -48,6 +48,18 @@ struct ContentView: View {
         } else {
             let numberOfItems = [0, 5, 15, 25, 35, 49, 65, 81, 100]
             generateLayout(items: numberOfItems[currentLevel])
+        }
+    }
+    
+    func processAnswer(at row: Int, _ column: Int) {
+        if image(row, column) == images[0] {
+            currentLevel += 1
+            createLevel()
+        } else {
+            if currentLevel > 1 {
+                currentLevel -= 1
+            }
+            createLevel()
         }
     }
 
@@ -67,7 +79,7 @@ struct ContentView: View {
                                     .frame(width: 64, height: 64)
                             } else {
                                 Button {
-                                    print("Penguin is clicked")
+                                    processAnswer(at: row, column)
                                 } label: {
                                     Image(image(row, column))
                                 }
@@ -77,8 +89,25 @@ struct ContentView: View {
                     }
                 }
             }
+            .opacity(isGameOver ? 0.2 : 1)
+            
+            if isGameOver {
+                GameOverScreen(action: {
+                    currentLevel = 1
+                    isGameOver = false
+                    createLevel()
+                })
+            }
         }
         .onAppear(perform: createLevel)
+        .contentShape(Rectangle())
+        .contextMenu {
+            Button("Start New Game") {
+                currentLevel = 1
+                isGameOver = false
+                createLevel()
+            }
+        }
     }
 }
 
