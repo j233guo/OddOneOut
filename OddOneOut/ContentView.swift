@@ -18,6 +18,38 @@ struct ContentView: View {
     func image(_ row: Int, _ column: Int) -> String {
         layout[row * Self.gridSize + column]
     }
+    
+    func generateLayout(items: Int) {
+        layout.removeAll(keepingCapacity: true)
+        images.shuffle()
+        layout.append(images[0])
+        var numUsed = 0
+        var itemCount = 1
+        for _ in 1..<items {
+            layout.append(images[itemCount])
+            numUsed += 1
+            if numUsed == 2 {
+                numUsed = 0
+                itemCount += 1
+            }
+            if itemCount == images.count {
+                itemCount += 1
+            }
+        }
+        layout += Array(repeating: "empty", count: 100 - layout.count)
+        layout.shuffle()
+    }
+    
+    func createLevel() {
+        if currentLevel == 9 {
+            withAnimation {
+                isGameOver = true
+            }
+        } else {
+            let numberOfItems = [0, 5, 15, 25, 35, 49, 65, 81, 100]
+            generateLayout(items: numberOfItems[currentLevel])
+        }
+    }
 
     var body: some View {
         ZStack {
@@ -46,6 +78,7 @@ struct ContentView: View {
                 }
             }
         }
+        .onAppear(perform: createLevel)
     }
 }
 
